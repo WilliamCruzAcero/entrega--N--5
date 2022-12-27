@@ -1,0 +1,59 @@
+extends layout 
+
+block formulario
+    <body>
+        <div class="container mt-3">
+            <div class="jumbotron">
+                <h1 style="color:black mt-3;"></h1>
+                <br/>
+
+                <form action="/datos" method="post">
+
+                    <div class="form-group">
+                        <label for="nombre"><b>Nombre</b></label>
+                        <input type="text" id="nombre" class="form-control" name="nombre">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="precio"><b>Precio</b></label>
+                        <input type="number" id="precio" class="form-control" name="precio">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="imagen"><b>Imagen</b></label>
+                        <input type="url" id="imagen" class="form-control" name="imagen">
+                    </div>
+
+                    <button class="btn btn-success mt-3 mb-5" >Enviar</button>
+                </form>
+
+                <h2 style="color:blue;">Historial de Productos</h2> 
+            </div> 
+        </div>
+
+        if productos.length > 0 
+            <div class="table-resposive">
+                <table class="table table-dark">
+                    <tr style="color: tomato;">
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Imagen</th>
+                    </tr>
+                    each producto in productos
+                        <tr>
+                            td= producto.nombre
+                            td= producto.precio
+                            <td>
+                                img(style="width:200px" src=producto.imagen alt=producto.nombre)
+                            </td>
+                            
+                        </tr>
+                            
+                </table>  
+            </div>
+        else 
+            <h3 class="alert alert-danger">No se encontraron productos</h3>
+
+    </body>
+
+    
